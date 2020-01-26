@@ -1,4 +1,7 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom'
+import Route from 'react-router-dom/Route'
+
 //import logo from './logo.svg';
 import './App.css';
 import HomePage from './app/screen/home/component/homepage'
@@ -10,11 +13,23 @@ import UserHome from './app/screen/user-home/component/user-home'
 
 function App() {
   return (
-    <div>
-      <HomePage greeting="Welcome to Rent-me-a-car Homepage"/>
-      <Login title="Please enter valid username and password"/>
-      <UserHome homeMsg="You are logged into you home page"/>
-    </div> 
+    <Router>
+         <div>
+           <Route path="/" exact>
+             <HomePage greeting="Welcome to Rent-me-a-car Homepage"/>
+           </Route>
+
+           <Route path="/login" exact>
+              <Login title="Please enter valid username and password"/>
+           </Route>
+           
+           <Route path="/home" exact>
+             <UserHome homeMsg="You are logged into you home page"/>
+           </Route>
+           
+          </div> 
+    </Router>
+    
    );
 }
 
